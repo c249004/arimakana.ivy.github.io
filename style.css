@@ -1,0 +1,563 @@
+/* 基本設定 */
+body {
+  font-family: 'Arial', sans-serif;
+  /* 全体のフォントを指定 */
+  margin: 0;
+  /* 余白をリセット */
+  padding: 0;
+  /* パディングをリセット */
+  background-color: #ffe4e1;
+  /* ペールピンクの背景色を設定 */
+}
+
+#wrapper {
+  display: flex;
+  /* 全体をフレックスレイアウトに設定 */
+  flex-direction: column;
+  /* 縦方向に配置 */
+  min-height: 100vh;
+  /* ビューポート全体の高さを確保 */
+}
+
+/* h1要素のスタイルを指定 */
+h1 {
+  color: #c71585;
+  /* 深いピンク色の文字 */
+  font-family: Arial, sans-serif;
+  /* フォントを指定  */
+  text-align: center;
+  /* テキストを中央揃え */
+}
+
+/* h2要素のスタイルを指定 */
+h2 {
+  color: #00008b;
+  /* 濃い青色の文字 */
+  font-family: Arial, sans-serif;
+  /* フォントを指定  */
+  text-align: center;
+  /* 中央寄せ  */
+}
+
+/* ローディング画面 */
+#loading-screen {
+  position: fixed;
+  /* 画面全体に表示 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* 横幅全体 */
+  height: 100%;
+  /* 高さ全体 */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* 半透明の背景 */
+  display: flex;
+  /* 中央揃えのためのフレックスボックス */
+  justify-content: center;
+  /* 水平中央揃え */
+  align-items: center;
+  /* 垂直中央揃え */
+  z-index: 1000;
+  /* 他の要素より前面に表示 */
+  color: #ff69b4;
+  /* ピンク色 */
+}
+
+/* ローディングテキストのスクロールアニメーション */
+#loading-text {
+  font-size: 24px;
+  /* フォントサイズを設定 */
+  font-weight: bold;
+  /* 太字 */
+  animation: scroll-text 10s linear infinite;
+  /* 無限にアニメーションを繰り返す */
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+
+  /* テキストが右端から始まる */
+  100% {
+    transform: translateX(-100%);
+  }
+  /* 左端へ移動する */
+}
+
+
+
+/* ハンバーガーメニュー */
+.hamburger {
+  display: block;
+  /* ブロック要素に設定 */
+  cursor: pointer;
+  /* カーソルをポインターに設定 */
+  width: 30px;
+  /* 横幅を設定 */
+  height: 30px;
+  /* 高さを設定 */
+  position: fixed;
+  /* 固定位置 */
+  top: 15px;
+  /* 上からの距離 */
+  left: 15px;
+  /* 左からの距離 */
+  z-index: 1000;
+  /* 前面に表示 */
+
+  /* 可愛くするための丸みと影 */
+  border-radius: 8px;
+  /* 角を丸める */
+  background-color: #ff77b5;
+  /* 明るいピンク色 */
+  padding: 8px;
+  /* 内側の余白 */
+  transition: transform 0.3s ease;
+  /* 回転時のアニメーション */
+}
+
+.hamburger span {
+  display: block;
+  /* ブロック要素 */
+  background-color: white;
+  /* 白色の背景 */
+  height: 4px;
+  /* 高さを指定 */
+  width: 100%;
+  /* 横幅を親要素に合わせる */
+  margin: 5px 0;
+  /* 各線の間隔 */
+  border-radius: 10px;
+  /* スムーズな丸み */
+  transition: all 0.3s;
+  /* アニメーションを適用 */
+}
+
+/* メニューのスタイル */
+.menu {
+  position: fixed;
+  /* 固定位置 */
+  top: 0;
+  /* 上から0 */
+  left: -100%;
+  /* 初期状態で非表示 */
+  width: 250px;
+  /* 横幅を設定 */
+  height: 100%;
+  /* 高さを画面全体に合わせる */
+  background-color: #ffb3d9;
+  /* 明るいピンク色  */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  /* 影を付ける */
+  transition: all 0.3s;
+  /* 表示/非表示時のアニメーション */
+  z-index: 999;
+  /* 前面に表示 */
+  border-radius: 10px 0 0 10px;
+  /* メニューの角を丸く */
+}
+
+.menu.active {
+  left: 0;
+  /* メニューが表示される位置 */
+}
+
+.menu ul {
+  list-style: none;
+  /* リストスタイルを解除 */
+  padding: 20px;
+  /* 内側の余白 */
+  margin: 0;
+  /* 外側の余白をリセット */
+}
+
+.menu ul li {
+  margin: 15px 0;
+  /* 各項目の間隔 */
+}
+
+.menu ul li a {
+  text-decoration: none;
+  /* アンダーラインを削除 */
+  color: #fff;
+  /* 白文字 */
+  font-size: 18px;
+  /* フォントサイズ */
+  font-weight: bold;
+  /* 太字 */
+  transition: color 0.3s;
+  /* 色変更時のアニメーション */
+}
+
+/* リンクにホバーした時の色変更 */
+.menu ul li a:hover {
+  color: #ff77b5;
+  /* 明るいピンク色に変更 */
+}
+
+
+/* ハンバーガーアイコンの回転 */
+.hamburger.active {
+  transform: rotate(90deg);
+  /* ハンバーガーアイコンが90度回転 */
+}
+
+/* コンテンツのレイアウト調整 */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#wrapper {
+  margin-left: 0;
+  transition: margin-left 0.3s;
+}
+
+.menu.active+#wrapper {
+  margin-left: 250px;
+}
+
+
+
+/* トップ画像エリアのスタイル設定 */
+#top-image {
+  background-color: #ffe4f0;
+  /* 薄いピンク色の背景 */
+  text-align: center;
+  /* テキストを中央揃え */
+  padding: 20px;
+  /* 内側の余白 */
+}
+
+/* スライダーのスタイル設定 */
+#slider {
+  display: flex;
+  /* フレックスボックスを使用 */
+  justify-content: center;
+  /* 水平方向に中央揃え */
+  align-items: center;
+  /* 垂直方向に中央揃え */
+  overflow: hidden;
+  /* コンテンツのあふれを隠す */
+  position: relative;
+  /* 相対位置を設定 */
+}
+
+.slide {
+  display: none;
+  /* 非アクティブスライドは非表示 */
+}
+
+.slide.active {
+  display: flex;
+  /* アクティブなスライドを表示 */
+  justify-content: center;
+  /* 水平方向に中央揃え */
+  align-items: center;
+  /* 垂直方向に中央揃え */
+}
+
+#slider img {
+  max-width: 100%;
+  /* 画像を親要素の幅に収める */
+  height: auto;
+  /* アスペクト比を維持 */
+  display: block;
+  /* ブロック要素として表示 */
+  margin: 0 auto;
+  /* 画像をセンターに配置 */
+  object-fit: cover;
+  /* 必要に応じて親要素内に収まるように調整 */
+}
+
+
+/* メインコンテンツのスタイル */
+#main-content {
+  display: flex;
+  /* フレックスレイアウト */
+  margin: 20px;
+  /* 外側の余白を設定 */
+  gap: 20px;
+  /* カラム間の間隔 */
+}
+
+/* サイドバーエリアのスタイル */
+#sidebar {
+  width: 30%;
+  /* 幅を30%に設定 */
+  background-color: #fff0f5;
+  /* 薄いピンクの背景色 */
+  padding: 20px;
+  /* 内側の余白を設定 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 軽い影を追加 */
+}
+
+#fortune,
+#weather {
+  margin-bottom: 20px;
+  /* 各セクション間の余白を設定 */
+}
+
+/* メインカラムエリアのスタイル */
+#main-column {
+  width: 70%;
+  /* 幅を70%に設定 */
+  display: flex;
+  /* フレックスレイアウト */
+  flex-direction: column;
+  /* 縦方向に配置 */
+  gap: 20px;
+  /* 各セクション間の間隔 */
+}
+
+/* サイトの説明セクション */
+#about {
+  background-color: #fdf5e6;
+  /* 薄いベージュの背景色 */
+  padding: 20px;
+  /* 内側の余白を設定 */
+  border-radius: 5px;
+  /* 角を丸める */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 軽い影を追加 */
+}
+
+/* 次回予告セクション */
+#jikai {
+  /* 背景色を薄いベージュに設定 */
+  background-color: #fdf5e6;
+  /* 内側の余白 */
+  padding: 20px;
+  /* 内側の余白 */
+  border-radius: 5px;
+  /* 角を丸める */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 軽い影を追加 */
+}
+
+/* 筆者紹介セクション */
+#Profile {
+  background-color: #ffe4e1;
+  /* 背景色を薄いピンクに設定 */
+  padding: 20px;
+  /* 内側の余白を設定 */
+  border-radius: 5px;
+  /* 角を丸める */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 軽い影を追加 */
+}
+
+/* キャラ紹介スライダー */
+#character-slider {
+  background-color: #ffe4e1;
+  /* 背景色を薄いピンクに設定 */
+  padding: 20px;
+  /* 内側の余白を設定 */
+  border-radius: 5px;
+  /* 角を丸める */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 軽い影を追加 */
+}
+
+#character-slideshow img {
+  width: 100%;
+  /* 幅を100%に設定 */
+  max-width: 300px;
+  /* 最大幅を300pxに設定 */
+  display: none;
+  /* すべての画像を非表示 */
+}
+
+/* #character-slideshow img:first-child {
+  display: block;}最初の画像を表示 */
+
+/* #character-slideshow img {
+  display: none;} */
+
+
+#character-slideshow img:first-child {
+  display: block;
+  /* 最初の画像のみ表示 */
+}
+
+
+/* サイトのメインセクション */
+#main-section {
+  background-color: #ffffff;
+  /* 白色の背景 */
+  padding: 20px;
+  /* 内側の余白 */
+  border-radius: 5px;
+  /* 角を丸める */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 軽い影を追加 */
+}
+
+
+/* キャラ紹介スライダー */
+#mv {
+  background-color: #ffe4e1;
+  /* 背景色を薄いピンクに設定 */
+  padding: 20px;
+  /* 内側の余白を設定 */
+  border-radius: 5px;
+  /* 角を丸める */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 軽い影を追加 */
+}
+
+
+
+/* フッターエリア */
+footer {
+  background-color: #ffcad4;
+  /* 背景色を薄いピンクに設定 */
+  text-align: center;
+  /* テキストを中央揃え */
+  padding: 10px 0;
+  /* 上下の余白 */
+}
+
+/* 壁紙の尊のフィールド */
+#star-field {
+  position: fixed;
+  /* 常に画面に表示 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* 全幅に設定 */
+  height: 100vh;
+  /* 全高に設定 */
+  pointer-events: none;
+  /* ユーザー操作を無効化 */
+  overflow: hidden;
+  /* あふれた内容を隠す */
+  z-index: -1;
+  /* 背景として表示 */
+}
+
+/* 尊のスタイル */
+.star {
+  position: absolute;
+  /* 固定位置 */
+  font-size: 2rem;
+  /* フォントサイズ */
+  color: #ff69b4;
+  /* ピンク色 */
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 20, 147, 0.6);
+  /* 浮遊するアニメーション */
+  animation: float 10s linear infinite;
+}
+
+/* 尊が上から下へ落ちるアニメーション */
+@keyframes float {
+  0% {
+    transform: translateY(-10vh);
+    /* 上端の外側からスタート */
+    opacity: 1;
+    /* 見える状態 */
+  }
+
+  100% {
+    transform: translateY(100vh);
+    /* 画面の下端に移動 */
+    opacity: 0;
+    /* 徐々に見えなくなる */
+  }
+}
+
+/* レスポンシブデザイン */
+
+/* デスクトップデザイン */
+@media (min-width: 1024px) {
+  #main-content {
+    display: flex;
+    /* フレックスレイアウト */
+  }
+
+  #site-description,
+  #character-slider,
+  #popup-links {
+    flex: 1;
+    /* 子要素を均等に分配 */
+    margin: 10px;
+    /* 外側の余白 */
+  }
+}
+
+/* タブレットデザイン */
+@media (min-width: 768px) and (max-width: 1023px) {
+  header {
+    flex-direction: column;
+    /* 縦方向に配置 */
+    align-items: flex-start;
+    /* 左寄せ */
+  }
+
+  #menu-content ul {
+    text-align: left;
+    /* 左寄せ */
+  }
+
+  #main-content {
+    flex-direction: column;
+    /* 縦方向に配置 */
+  }
+}
+
+/* スマホデザイン */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+    /* フォントサイズを小さく設定 */
+  }
+
+  header {
+    flex-direction: column;
+    /* 縦方向に配置 */
+    align-items: center;
+    /* 中央揃え */
+  }
+
+  .hamburger-menu {
+    position: absolute;
+    /* 固定位置 */
+    right: 20px;
+    /* 右余白 */
+    top: 10px;
+    /* 上余白 */
+  }
+
+  #main-content {
+    padding: 10px;
+    /* 内側の余白 */
+  }
+
+  #character-slider img {
+    width: 100%;
+    /* 画像を親要素幅にフィット */
+  }
+}
+
+
+/* 縦型ショート動画用のスタイル */
+.youtube iframe {
+  position: relative;
+  /* 親要素に依存する位置設定 */
+  aspect-ratio: 9 /16;
+  /* 縦横比を指定 */
+}
+
+.youtube .video {
+  height: 100%;
+  /* 親要素に高さをフィット */
+  margin: 0 auto;
+  /* 中央寄せ */
+  overflow: visible;
+  /* コンテンツのあふれを許容 */
+  padding-bottom: 0;
+  width: 300px;
+  /* ビデオ横幅 */
+}

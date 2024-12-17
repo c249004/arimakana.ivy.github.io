@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有馬かなファンサイト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- 背景の星フィールド -->
+  <div id="star-field"></div>
+
+  <!-- ローディング画面 -->
+  <div id="loading-screen">
+    <p id="loading-text">有馬かなファンサイトへようこそ</p>
+  </div>
+
+  <!-- 全体を包むラッパー -->
+  <div id="wrapper">
+
+    <!-- トップ画像とスライダー -->
+    <header id="top-image">
+      <h1>有馬かなファンサイト</h1>
+      <div id="slider">
+        <!-- スライド画像 -->
+        <div class="slide active"><img src="img\Arima.Kana.full.4112031.jpg" alt="スライド1"></div>
+        <div class="slide"><img src="img\202301888-OshinoKo-PC-Wallpaper.jpg" alt="スライド2"></div>
+        <div class="slide"><img src="img\202302529-OshinoKo-PC-Wallpaper.jpg" alt="スライド3"></div>
+      </div>
+    </header>
+    <!-- ハンバーガーメニュー -->
+    <div class="hamburger" id="hamburger">
+      <!-- ハンバーガーメニューの3本線（バー）を表現するための要素 -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- サイドメニュー -->
+    <nav class="menu" id="menu">
+      <ul>
+        </br>
+        </br>
+        <li><a href="#top-image">トップ</a></li>
+        <li><a href="#about">サイト紹介</a></li>
+        <li><a href="#character-slider">ストーリー</a></li>
+        <li><a href="#main-section">プロフィール</a></li>
+        <li><a href="#mv">B小町ＭＶ集</a></li>
+        <li><a href="#jikai">次回予告</a></li>
+        <li><a href="#Profile">筆者紹介</a></li>
+        <li><a href="#fortune">血液型占い</a></li>
+        <li><a href="#weather">天気情報</a></li>
+      </ul>
+    </nav>
+    <!-- メインコンテンツエリア -->
+    <main id="main-content">
+
+
+      <!-- サイドバー -->
+      <aside id="sidebar">
+
+        <!-- 血液型占いセクション -->
+        <section id="fortune">
+
+          <h2>推しの子</h2>
+          <center>
+            <img src="img\oshinoko_icon_05.jpg" width="100" height="100" alt="占い" class="img-round imgL">
+          
+          <h2>血液型占い</h2>
+          <!-- 入力フィールドとボタン -->
+          <input type="text" id="blood-type" placeholder="A, B, O, AB">
+          <button onclick="showFortune()">占う</button>
+          <p id="fortune-result"></p>
+          </center>
+        </section>
+        <br>
+        <br>
+        <br>
+        <!-- オススメ商品 -->
+        <center>
+          <img src="img\oshinoko_icon_29.jpg" width="100" height="100" alt="オススメ商品" class="img-round imgL">
+        </center>
+
+        <h2>オススメ商品</h2>
+        <!-- 楽天アフィリエイトリンク -->
+        <center>
+          <a href="https://hb.afl.rakuten.co.jp/ichiba/0e6508d8.d6bfd85e.0e6508d9.5c4ba314/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17484580%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+            target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img
+              src="https://hbb.afl.rakuten.co.jp/hgb/0e6508d8.d6bfd85e.0e6508d9.5c4ba314/?me_id=1213310&item_id=20942092&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fbook%2Fcabinet%2F3630%2F2100013433630_2_2.jpg%3F_ex%3D240x240&s=240x240&t=pict"
+              border="0" style="margin:2px" alt="" title=""></a>
+
+          <br>
+          <a href="https://hb.afl.rakuten.co.jp/ichiba/0e6508d8.d6bfd85e.0e6508d9.5c4ba314/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17925029%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+            target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img
+              src="https://hbb.afl.rakuten.co.jp/hgb/0e6508d8.d6bfd85e.0e6508d9.5c4ba314/?me_id=1213310&item_id=21316780&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fbook%2Fcabinet%2F6076%2F2100013976076_2_2.jpg%3F_ex%3D240x240&s=240x240&t=pict"
+              border="0" style="margin:2px" alt="" title=""></a>
+        </center>
+        </br>
+        </br>
+        <!-- 天気情報セクション -->
+        <section id="weather">
+          <h2>今日の天気</h2>
+          <center>
+            <img src="img\oshinoko_icon_13.jpg" width="100" height="100" alt="今日の天気" class="img-round imgL">
+          </center>
+          <p>現場行くなら天気はチェック！！！</p>
+          <!-- 天気ウィジェット -->
+          <div id="ww_28d125cecaa72" v='1.3' loc='auto'
+            a='{"t":"horizontal","lang":"ja","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
+            More forecasts: <a href="https://oneweather.org/ja/tokyo/10_days/" id="ww_28d125cecaa72_u"
+              target="_blank">天気 東京 10日</a></div>
+          <script async src="https://app3.weatherwidget.org/js/?id=ww_28d125cecaa72"></script>
+        </section>
+      </aside>
+
+      <!-- メインカラム -->
+      <section id="main-column">
+
+        <!-- サイトの説明 -->
+        <section id="about">
+          <h2>このサイトの紹介</h2>
+          <p>このサイトは漫画「推しの子」</p>
+          <img src="img\arima.png" alt="キャラ1" style="width: 200px; height: auto;">
+          </br>
+          </br>
+          <p>有馬かなファンサイトです！</p>
+          </br>
+          <p>...まずは、筆者が有馬かなにハマる原因となったシーンを見てほしい。</p>
+          <p>内面に弱さを抱えつつも、この強気な姿勢！！可愛くて可愛くてしょうがない！！</p>
+          <h1>この魅力を全人類に伝えるべくこのサイトを立ち上げました！</h1>
+          </br>
+
+          <div class="youtube"><iframe width="320" height="560"
+              src="https://www.youtube.com/embed/ZK7-ni5AnHQ?si=mp6Q6Q5A0VUAb_L2" title="" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe></div>
+        </section>
+
+
+        <!-- キャラ紹介（スライドショー） -->
+        <section id="character-slider">
+          <h2>推しの子のストーリーを簡単に説明</h2>
+          <p>主人公の青年が死後に前世の記憶を持ったまま、</p>
+          <p>推していたアイドルの子供に生まれ変わる<strong>「転生もの」</strong></p>
+          <p>ファンタジー設定でありながら、サスペンス要素や現代社会を投影した展開、</p>
+          <p><b>芸能界の闇へ切り込むリアルさが本作の特徴である。</b></p>
+          </br>
+          </br>
+          <p>では、推しの子の登場人物を紹介します！</p>
+          <div id="character-slideshow">
+            <img src="img/pai (1).png" alt="キャラ1">
+            <img src="img/pai (2).png" alt="キャラ2">
+            <img src="img/pai (3).png" alt="キャラ3">
+            <img src="img/pai (4).png" alt="キャラ4">
+            <img src="img/pai (5).png" alt="キャラ5">
+            <img src="img/pai (6).png" alt="キャラ6">
+          </div>
+          <p>推しの子の登場人物はさまざまな個性があり魅力的なキャラが多く、</p>
+          <p>どのキャラも推せる可愛さをもってます！</p>
+        </section>
+
+
+        <!-- 有馬かなプロフィール -->
+        <section id="main-section">
+          <h2>有馬かなプロフィール</h2>
+          <dl>
+            <dt>年齢 ：</dt>
+            <dd>17歳（高校2年生）</dd>
+            <dt>学校 ：</dt>
+            <dd>陽東高校芸能科</dd>
+            <dt>職業 ：</dt>
+            <dd>アイドル（新生B小町センター）</dd>
+            <dt>所属 ：</dt>
+            <dd>フリーを経て、現在は苺プロ所属</a></dd>
+          </dl>
+          <h2>有馬かなの紹介</h2>
+          <p>
+            本作のヒロインの一人。かつて<strong>「10秒で泣ける天才子役」</strong>として一世を風靡した女優。
+            子役としてのピークを過ぎてからも細々と役者の仕事を続けていたが、かつてのような勢いはない。
+          </p>
+          <p>
+            子役時代に出会った<strong>星野アクアと星野ルビーの兄妹</strong>と高校で再会したことがきっかけで、
+            止まりかけていた彼女の芸能人生が再び動き出す。
+          </p>
+          <h3>性格の特徴</h3>
+          <p>
+            素直になれないところがかわいい。気持ちが昂ると本心とは正反対の発言をしてしまうことがあり、
+            本人も自分の悪い癖だと自覚している。言葉では素直になれないながらも表情には本心が出ており、
+            <strong>言葉と態度がちぐはぐになってしまう</strong>ところが魅力のひとつ。
+          </p>
+          <ul>
+            <li>
+              例えば、アクアに「学校をサボって遊ぼう」と誘われたとき、「マジさいあく！」を連呼して乗り気ではない姿勢を見せる。
+            </li>
+            <li>
+              しかし、実際には笑顔で楽しそうにしており、本心では「マジさいこう！」と思っていた。
+            </li>
+          </ul>
+          <p>
+            素直になれない有馬かなは、確かに面倒くさい一面も持っている。しかし、その不器用さが人間らしくて愛おしい。
+          </p>
+        </section>
+
+
+        <!-- B小町ＭＶ集 -->
+        <section id="mv">
+          <h2>有馬かな所属のアイドルグループ</h2>
+          <h2>Ｂ小町ＭＶ</h2>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/CJyMOYPIvdE?si=xqOHux8XTK5hqpVd"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </br>
+          </br>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/c7E-tgmFuzw?si=1K73WkDeez-yv_7S"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </br>
+        </section>
+
+
+        <!-- 次回予告 -->
+        <section id="jikai">
+          <h2>次回予告</h2>
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/2LSRhSJ5Ifk?si=yASUftsEaVBUZ89V&amp;start=1" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <p>筆者が次にはまったアニメ、</p>
+          <p>「村井の恋」の紹介サイト開設予定（嘘）</p>
+        </section>
+
+
+        <!-- 筆者紹介 -->
+        <section id="Profile">
+          <h2 class="h">筆者紹介</h2>
+          <img src="img\businesswoman_b3_tehe.png" width="200" height="200" alt="アバター画像" class="img-round imgL">
+          <dl>
+            <dt>H.N. ：</dt>
+            <dd>47</dd>
+            <dt>趣味 ：</dt>
+            <dd>野球観戦です。今シーズンの推しチームが弱すぎたのでアニメに現実逃避中です。</dd>
+            <dt>最近の出来事 ：</dt>
+            <dd>専門学校に通い始めました。検定試験も落ち着いて燃え尽きモードです。</dd>
+            <dt>mail ：</dt>
+            <dd><a href="mailto:c249004@ivy.ac.jp">c249004@ivy.ac.jp</a></dd>
+          </dl>
+          <br>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+      <p>Copyright © 47 Web All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- スクリプト -->
+  <script src="script.js"></script>
+</body>
+
+</html>
